@@ -5,8 +5,8 @@
         public int QtdMovimentos { get; protected set; }
         public Tabuleiros Tabuleiros { get; protected set; }
 
-        public Pecas(Posicao posicao, Cores cores,  Tabuleiros tabuleiro) {
-            Posicao = posicao;
+        public Pecas(Cores cores,  Tabuleiros tabuleiro) {
+            Posicao = null;
             Cores = cores;
             QtdMovimentos = 0;
             Tabuleiros = tabuleiro;
