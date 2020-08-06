@@ -10,6 +10,11 @@
             Cores = cores;
             QtdMovimentos = 0;
             Tabuleiros = tabuleiro;
+
+        }
+
+        public void IncrementarQtdMovimentos() {
+            QtdMovimentos++;
         }
     }
 }

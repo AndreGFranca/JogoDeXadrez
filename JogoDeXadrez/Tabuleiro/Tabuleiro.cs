@@ -33,6 +33,15 @@ namespace Tabuleiro {
             p.Posicao = pos;
         }
 
+        public Pecas RetirarPeca(Posicao pos) {
+            if(peca(pos) == null) {
+                return null;
+            }
+            Pecas aux = peca(pos);
+            Pecas[pos.Linha, pos.Coluna] = null;
+            return aux;
+        }
+
         public bool PosicaoValida(Posicao pos) {
             if(pos.Linha< 0 || pos.Linha >= Linha || pos.Coluna < 0 || pos.Coluna >= Colunas) {
                 return false;

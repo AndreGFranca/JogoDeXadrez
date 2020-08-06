@@ -7,23 +7,22 @@ namespace JogoDeXadrez {
     class Program {
         static void Main(string[] args) {
             try {
-                PosicaoXadrez PosicaoXadrez = new PosicaoXadrez('c',7);
+                PartidaDeXadrez partidaDeXadrez = new PartidaDeXadrez();
+                while (!partidaDeXadrez.Terminada) {
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(partidaDeXadrez.Tabuleiros);
+                    Console.WriteLine();
 
-                Console.WriteLine(PosicaoXadrez);
-                Console.WriteLine(PosicaoXadrez.ToPosicao());
+                    Console.Write("Origem: ");
+                    Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
+                    Console.Write("Destino: ");
+                    Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
 
-                Tabuleiros tab = new Tabuleiros(8, 8);
-
-                tab.ColocarUmaPeca(new Torre(tab, Cores.Preto), new Posicao(0, 0));
-                tab.ColocarUmaPeca(new Torre(tab, Cores.Preto), new Posicao(1, 3));
-                tab.ColocarUmaPeca(new Rei(tab, Cores.Preto), new Posicao(0, 7));
-
-                tab.ColocarUmaPeca(new Torre(tab, Cores.Branca), new Posicao(3, 0));
-                tab.ColocarUmaPeca(new Torre(tab, Cores.Branca), new Posicao(2, 3));
-                tab.ColocarUmaPeca(new Rei(tab, Cores.Branca), new Posicao(4, 7));
+                    partidaDeXadrez.ExecutaMovimento(origem, destino);
+                }
 
 
-                Tela.ImprimirTabuleiro(tab);
+                
             }
 
             catch(DomainExceptions e) {
