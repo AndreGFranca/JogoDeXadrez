@@ -1,16 +1,22 @@
 ﻿using Tabuleiro;
 using Tabuleiro.Execeptions;
 using Xadrez;
+using System;
     
 namespace JogoDeXadrez {
     class Program {
         static void Main(string[] args) {
             try {
+                PosicaoXadrez PosicaoXadrez = new PosicaoXadrez('c',7);
+
+                Console.WriteLine(PosicaoXadrez);
+                Console.WriteLine(PosicaoXadrez.ToPosicao());
+
                 Tabuleiros tab = new Tabuleiros(8, 8);
 
                 tab.ColocarUmaPeca(new Torre(tab, Cores.Preto), new Posicao(0, 0));
                 tab.ColocarUmaPeca(new Torre(tab, Cores.Preto), new Posicao(1, 3));
-                tab.ColocarUmaPeca(new Rei(tab, Cores.Preto), new Posicao(0, 9));
+                tab.ColocarUmaPeca(new Rei(tab, Cores.Preto), new Posicao(0, 7));
 
 
                 Tela.ImprimirTabuleiro(tab);
