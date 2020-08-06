@@ -15,10 +15,15 @@ namespace JogoDeXadrez {
 
                     Console.Write("Origem: ");
                     Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
+                    Console.Clear();
+
+                    bool[,] posicoesPossiveis = partidaDeXadrez.Tabuleiros.peca(origem).MovimentosPossiveis();
+                    Tela.ImprimirTabuleiro(partidaDeXadrez.Tabuleiros, posicoesPossiveis);
                     Console.Write("Destino: ");
                     Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
 
                     partidaDeXadrez.ExecutaMovimento(origem, destino);
+                    
                 }
 
 
