@@ -1,9 +1,11 @@
-﻿using System;
-
+﻿using Tabuleiro;
+    
 namespace JogoDeXadrez {
     class Program {
         static void Main(string[] args) {
-            Console.WriteLine("Hello World!");
+            Posicao Posicao = new Posicao(2, 3);
+            System.Console.WriteLine($"Posicao: {P}");
+            
         }
     }
 }
