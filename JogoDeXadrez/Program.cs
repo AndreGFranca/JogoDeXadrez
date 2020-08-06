@@ -18,6 +18,10 @@ namespace JogoDeXadrez {
                 tab.ColocarUmaPeca(new Torre(tab, Cores.Preto), new Posicao(1, 3));
                 tab.ColocarUmaPeca(new Rei(tab, Cores.Preto), new Posicao(0, 7));
 
+                tab.ColocarUmaPeca(new Torre(tab, Cores.Branca), new Posicao(3, 0));
+                tab.ColocarUmaPeca(new Torre(tab, Cores.Branca), new Posicao(2, 3));
+                tab.ColocarUmaPeca(new Rei(tab, Cores.Branca), new Posicao(4, 7));
+
 
                 Tela.ImprimirTabuleiro(tab);
             }
