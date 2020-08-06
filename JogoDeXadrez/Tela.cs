@@ -36,6 +36,7 @@ namespace JogoDeXadrez {
 
                 }
                 Console.WriteLine();
+                Console.BackgroundColor = fundoOriginal;
             }
             Console.WriteLine("  a b c d e f g h");
             //Console.ForegroundColor = fundoOriginal;

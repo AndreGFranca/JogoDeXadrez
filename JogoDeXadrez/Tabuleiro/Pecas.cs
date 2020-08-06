@@ -14,8 +14,26 @@
         }
 
         public void IncrementarQtdMovimentos() {
-            QtdMovimentos++;
+            QtdMovimentos++;        
+        }
+
+        public bool PodeMoverPara(Posicao pos) {
+            return MovimentosPossiveis()[pos.Linha,pos.Coluna];
+        }
+
+        public bool ExisteMovimentosPossiveis() {
+            bool[,] mat = MovimentosPossiveis();
+            for (int i = 0; i < Tabuleiros.Linha; i++) {
+                for (int j = 0; j < Tabuleiros.Colunas; j++) {
+                    if (mat[i,j]) {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
         public abstract bool[,] MovimentosPossiveis(); 
+
+
     }
 }

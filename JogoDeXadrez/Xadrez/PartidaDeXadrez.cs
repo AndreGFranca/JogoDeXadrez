@@ -1,4 +1,4 @@
-﻿
+﻿using Tabuleiro.Execeptions;
 using Tabuleiro;
 
 namespace Xadrez {
@@ -21,6 +21,43 @@ namespace Xadrez {
             p.IncrementarQtdMovimentos();
             Pecas PecaCapturada = Tabuleiros.RetirarPeca(destino);
             Tabuleiros.ColocarUmaPeca(p, destino);
+
+        }
+
+        public void RealizaJogada(Posicao origem, Posicao destino) {
+            
+            ExecutaMovimento(origem, destino);
+            Turno++;
+            MudaJogador();
+
+        }
+
+        public void MudaJogador() {
+            if (JogadorAtual == Cores.Branca) {
+                JogadorAtual = Cores.Preto;
+            }
+            else {
+                JogadorAtual = Cores.Branca;
+            }
+        }
+
+        public void ValidarPosicaoOrigem(Posicao pos) {
+            if (Tabuleiros.peca(pos) == null) {
+                throw new DomainExceptions("Não existe peça na posição de origem escolhida!");
+            }
+            if (JogadorAtual != Tabuleiros.peca(pos).Cores) {
+                throw new DomainExceptions("A peça de origem escolhida não é sua!");
+            }
+            if (!Tabuleiros.peca(pos).ExisteMovimentosPossiveis()) {
+                throw new DomainExceptions("Não há movimentos possíveis para a peça de origem escolhida!");
+            }
+
+        }
+
+        public void ValidarPosicaoDeDestino(Posicao origem, Posicao destino) {
+            if (!Tabuleiros.peca(origem).PodeMoverPara(destino)) {
+                throw new DomainExceptions("Posição de destino Invalida!");
+            }
 
         }
         private void colocarPecas() {
