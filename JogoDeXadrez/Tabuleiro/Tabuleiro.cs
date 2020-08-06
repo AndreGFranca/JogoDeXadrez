@@ -8,6 +8,11 @@
             Linha = linha;
             Colunas = colunas;
             Pecas = new Pecas[linha,colunas];
+            
+        }
+
+        public Pecas Peca(int linha, int coluna) {
+            return Pecas[linha, coluna];
         }
     }
 }

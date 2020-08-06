@@ -7,6 +7,8 @@ namespace JogoDeXadrez {
 
             Posicao Posicao = new Posicao(2, 3);
             System.Console.WriteLine($"Posicao: {Posicao}");
+            Tela.ImprimirTabuleiro(tab);
+
             
         }
     }
