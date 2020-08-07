@@ -2,6 +2,7 @@
 using Xadrez;
 using System.Collections.Generic;
 using System;
+using Tabuleiro.Execeptions;
 
 namespace JogoDeXadrez {
     class Tela {
@@ -83,7 +84,11 @@ namespace JogoDeXadrez {
         }
 
         public static PosicaoXadrez LerPosicaoXadrez() {
+            
             string s = Console.ReadLine();
+            if (s.Length > 2 || Char.IsNumber(s[0])) {
+                throw new DomainExceptions("apenas um caracter e um numero!");
+            }
             char coluna = s[0];
             int linha = int.Parse(s[1] + "");
             return new PosicaoXadrez(coluna, linha);
@@ -108,5 +113,7 @@ namespace JogoDeXadrez {
                 Console.Write(" ");
             }
         }
+
+        
     }
 }
