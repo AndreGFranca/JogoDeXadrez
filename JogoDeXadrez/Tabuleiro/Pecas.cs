@@ -17,6 +17,10 @@
             QtdMovimentos++;        
         }
 
+        public void DecrementarQtdMovimentos() {
+            QtdMovimentos--;
+        }
+
         public bool PodeMoverPara(Posicao pos) {
             return MovimentosPossiveis()[pos.Linha,pos.Coluna];
         }
