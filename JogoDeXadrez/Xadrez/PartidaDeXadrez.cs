@@ -119,6 +119,19 @@ namespace Xadrez {
                 DesfazMovimento(origem, destino, pecaCapturada);
                 throw new DomainExceptions("Você não pode se colocar em cheque");
             }
+
+            Pecas P = Tabuleiros.peca(destino);
+            //# Jogada especial Promocao
+            if (P is Peao) {
+                if ((P.Cores == Cores.Branca && destino.Linha == 0) || (P.Cores == Cores.Preto && destino.Linha == 7) ) {
+                    P = Tabuleiros.RetirarPeca(destino);
+                    Pecas.Remove(P);
+                    Pecas dama = new Dama(Tabuleiros, P.Cores);
+                    Tabuleiros.ColocarUmaPeca(dama, destino);
+                    Pecas.Add(dama);
+
+                }
+            }
             if (EstaEmXeque(Adversaria(JogadorAtual))) {
                 Xeque = true;
             }
@@ -132,7 +145,7 @@ namespace Xadrez {
                 Turno++;
                 MudaJogador();
             }
-            Pecas P = Tabuleiros.peca(destino);
+            
             //#JogadaEspecial En Passant
             if (P is Peao && (destino.Linha == origem.Linha + 2 || destino.Linha == origem.Linha - 2)) {
                 VulneravelEnPassant = P;
